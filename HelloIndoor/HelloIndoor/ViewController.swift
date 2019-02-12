@@ -12,8 +12,10 @@ import UIKit
 class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
     
     // 2. Add the location manager
-    let locationManager = EILIndoorLocationManager()
+    var locationManager = EILIndoorLocationManager()
     var location: EILLocation!
+    
+    @IBOutlet weak var locationView: EILIndoorLocationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,38 +24,40 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
         
         ESTConfig.setupAppID("helloindoor-58j", andAppToken: "9ffdcc7c153efd1531abfd00c463c1c7")
         
-        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "test-office-kr8")
+        self.locationManager = EILIndoorLocationManager()
+        self.locationManager.delegate = self
+        self.locationManager.mode = EILIndoorLocationManagerMode.normal
+        
+        // TODO: replace with an identifier of your own location
+        // You will find the identifier on https://cloud.estimote.com/#/locations
+        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier:"test-office-kr8")
         fetchLocationRequest.sendRequest { (location, error) in
-            if location != nil {
-                self.location = location!
+            if let location = location {
+                self.location = location
+                
+                // You can configure the location view to your liking:
+                self.locationView.showTrace = true
+                self.locationView.rotateOnPositionUpdate = false
+                // Consult the full list of properties on:
+                // http://estimote.github.io/iOS-Indoor-SDK/Classes/EILIndoorLocationView.html
+                self.locationView.drawLocation(location)
                 self.locationManager.startPositionUpdates(for: self.location)
-            } else {
-                print("can't fetch location: \(String(describing: error))")
+            } else if let error = error {
+                print("can't fetch location: \(error)")
             }
         }
     }
-
-    func indoorLocationManager(_ manager: EILIndoorLocationManager,
-                               didFailToUpdatePositionWithError error: Error) {
-        print("failed to update position: \(String(describing: error))")
+    
+    func indoorLocationManager(_ manager: EILIndoorLocationManager, didFailToUpdatePositionWithError error: Error) {
+        print("failed to update position: \(error)")
     }
     
-    func indoorLocationManager(_ manager: EILIndoorLocationManager,
-                               didUpdatePosition position: EILOrientedPoint,
-                               with positionAccuracy: EILPositionAccuracy,
-                               in location: EILLocation) {
-        var accuracy: String!
-        switch positionAccuracy {
-        case .veryHigh: accuracy = "+/- 1.00m"
-        case .high:     accuracy = "+/- 1.62m"
-        case .medium:   accuracy = "+/- 2.62m"
-        case .low:      accuracy = "+/- 4.24m"
-        case .veryLow:  accuracy = "+/- ? :-("
-        case .unknown:  accuracy = "unknown"
-        }
-        print(String(format: "x: %5.2f, y: %5.2f, orientation: %3.0f, accuracy: %@",
-                     position.x, position.y, position.orientation, accuracy))
+    func indoorLocationManager(_ manager: EILIndoorLocationManager, didUpdatePosition position: EILOrientedPoint, with positionAccuracy: EILPositionAccuracy, in location: EILLocation) {
+        print(String(format: "x: %5.2f, y: %5.2f, orientation: %3.0f", position.x, position.y, position.orientation))
+        
+        self.locationView.updatePosition(position)
     }
+
 
 }
 
