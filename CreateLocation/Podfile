@@ -1,0 +1,3 @@
+target "CreateLocation" do
+  pod "EstimoteIndoorSDK"
+end
