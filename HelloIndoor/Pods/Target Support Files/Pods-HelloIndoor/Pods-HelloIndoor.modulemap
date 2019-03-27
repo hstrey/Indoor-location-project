@@ -1,0 +1,6 @@
+module Pods_HelloIndoor {
+  umbrella header "Pods-HelloIndoor-umbrella.h"
+
+  export *
+  module * { export * }
+}

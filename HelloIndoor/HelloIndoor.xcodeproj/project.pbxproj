@@ -102,6 +102,7 @@
 				F188982A221324AD00731A6C /* Frameworks */,
 				F188982B221324AD00731A6C /* Resources */,
 				2F424343BAF608E3866D89D1 /* [CP] Copy Pods Resources */,
+				F9730A63D4B9685A29403779 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,6 +250,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelloIndoor/Pods-HelloIndoor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9730A63D4B9685A29403779 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HelloIndoor/Pods-HelloIndoor-frameworks.sh",
+				"${PODS_ROOT}/EstimoteBluetoothScanning/EstimoteBluetoothScanning/EstimoteBluetoothScanning.framework",
+				"${PODS_ROOT}/EstimoteProximitySDK/EstimoteProximitySDK/EstimoteProximitySDK.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EstimoteBluetoothScanning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EstimoteProximitySDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HelloIndoor/Pods-HelloIndoor-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF430C49EB2C5D7EFEA6EA3E /* [CP] Check Pods Manifest.lock */ = {

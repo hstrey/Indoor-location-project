@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyDropbox
+import EstimoteProximitySDK
 
 func getTodayString() -> String{
     
@@ -81,6 +82,31 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
                 print("can't fetch location: \(error)")
             }
         }
+        
+        let cloudCredentials = CloudCredentials(appID: "helloindoor-58j",
+                                                appToken: "9ffdcc7c153efd1531abfd00c463c1c7")
+        self.proximityObserver = ProximityObserver(
+            credentials: cloudCredentials,
+            onError: { error in
+                print("proximity observer error: \(error)")
+        })
+        
+        let zone_red = ProximityZone(tag: "red", range: .near)
+        zone_red.onEnter = { _ in
+            print("close to red")
+        }
+        zone_red.onExit = { _ in
+            print("exiting red")
+        }
+        
+        let zone_blue = ProximityZone(tag: "red", range: .near)
+        zone_blue.onEnter = { _ in
+            print("close to blue")
+        }
+        zone_blue.onExit = { _ in
+            print("exiting blue")
+        }
+
         DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: {(url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil)})
     }
     
