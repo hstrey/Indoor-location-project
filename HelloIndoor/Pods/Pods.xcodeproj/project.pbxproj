@@ -1729,23 +1729,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		18B9E4B52061FEDC0C8E73942A99863B /* Release */ = {
+		17F84755D42D05AD2D1A6D0BACE332A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3654C004D151DBE1FCBBE86427EF85D5 /* EstimoteBluetoothScanning.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		19852C825784489418C30C9C81577121 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1788,6 +1786,23 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		26EB3EA94E2486BEED067335D2A27B88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3654C004D151DBE1FCBBE86427EF85D5 /* EstimoteBluetoothScanning.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		344246C0A52B7C67F4DB112561F8CE56 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1929,23 +1944,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		8E0587E417414294C74BDB571234C8B8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3654C004D151DBE1FCBBE86427EF85D5 /* EstimoteBluetoothScanning.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		8F1F3D35992A5196CE90E39DC8A8170E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2198,8 +2196,8 @@
 		EECF008B0690182593BBEF49B9F65477 /* Build configuration list for PBXAggregateTarget "EstimoteBluetoothScanning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8E0587E417414294C74BDB571234C8B8 /* Debug */,
-				18B9E4B52061FEDC0C8E73942A99863B /* Release */,
+				17F84755D42D05AD2D1A6D0BACE332A7 /* Debug */,
+				26EB3EA94E2486BEED067335D2A27B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

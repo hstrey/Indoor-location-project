@@ -32,11 +32,6 @@
 @property(nonatomic, strong, readonly) NSString *bootloaderVersion;
 
 /**
- Flag indicating if beacon's button was pressed.
- */
-@property(nonatomic, strong, readonly) NSNumber *isPressed;
-
-/**
  Initializer.
 
  @param peripheralIdentifier Identifier of scanned peripheral.
@@ -51,7 +46,6 @@
                                     scanDate:(NSDate *)scanDate
                                     publicID:(NSString *)publicID
                                   appVersion:(NSString *)appVersion
-                           bootloaderVersion:(NSString *)bootloaderVersion
-                                   isPressed:(NSNumber *)isPressed;
+                           bootloaderVersion:(NSString *)bootloaderVersion;
 
 @end

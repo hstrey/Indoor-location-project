@@ -50,6 +50,7 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
     var location: EILLocation!
     var positions = getTodayString()+"\n"
     var filenumber = 1
+    var proximityObserver: ProximityObserver!
     
     @IBOutlet weak var locationView: EILIndoorLocationView!
     
@@ -85,6 +86,7 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
         
         let cloudCredentials = CloudCredentials(appID: "helloindoor-58j",
                                                 appToken: "9ffdcc7c153efd1531abfd00c463c1c7")
+        
         self.proximityObserver = ProximityObserver(
             credentials: cloudCredentials,
             onError: { error in
