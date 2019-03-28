@@ -96,19 +96,25 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
         let zone_red = ProximityZone(tag: "red", range: .near)
         zone_red.onEnter = { _ in
             print("close to red")
+            self.positions = self.positions + getTimeString() + " close to red\n"
         }
         zone_red.onExit = { _ in
             print("exiting red")
+            self.positions = self.positions + getTimeString() + " exiting red\n"
         }
         
-        let zone_blue = ProximityZone(tag: "red", range: .near)
+        let zone_blue = ProximityZone(tag: "blue", range: .near)
         zone_blue.onEnter = { _ in
             print("close to blue")
+            self.positions = self.positions + getTimeString() + " close to blue\n"
         }
         zone_blue.onExit = { _ in
             print("exiting blue")
+            self.positions = self.positions + getTimeString() + " exiting blue\n"
         }
-
+        
+        self.proximityObserver.startObserving([zone_red,zone_blue])
+        
         DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: {(url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil)})
     }
     
@@ -126,10 +132,10 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
         
         self.locationView.updatePosition(position)
         
-        if self.positions.count > 1000 {
+        if self.positions.count > 10000 {
             if let client = DropboxClientsManager.authorizedClient {
                 let fileData = self.positions.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-                let _ = client.files.upload(path: "/blue"+String(self.filenumber), mode: .overwrite, autorename: false, input: fileData)
+                let _ = client.files.upload(path: "/blue"+String(self.filenumber)+".txt", mode: .overwrite, autorename: false, input: fileData)
                     .response { response, error in
                         if let response = response {
                             print(response)
