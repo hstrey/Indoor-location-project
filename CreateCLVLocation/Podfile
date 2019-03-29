@@ -1,0 +1,3 @@
+target "CreateCLVLocation" do
+  pod "EstimoteIndoorSDK"
+end

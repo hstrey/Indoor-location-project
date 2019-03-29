@@ -1,0 +1,6 @@
+module Pods_CloseContactPink {
+  umbrella header "Pods-CloseContactPink-umbrella.h"
+
+  export *
+  module * { export * }
+}

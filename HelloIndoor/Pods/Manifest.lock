@@ -1,17 +1,17 @@
 PODS:
   - Alamofire (4.7.3)
-  - EstimoteBluetoothScanning (0.3.0)
+  - EstimoteBluetoothScanning (1.0.0)
   - EstimoteIndoorSDK (2.7.1):
     - EstimoteSDK (~> 4.16.0)
-  - EstimoteProximitySDK (1.2.0):
-    - EstimoteBluetoothScanning (~> 0.2)
+  - EstimoteProximitySDK (1.3.1):
+    - EstimoteBluetoothScanning (>= 0.2)
   - EstimoteSDK (4.16.2)
   - SwiftyDropbox (5.0.0):
     - Alamofire (~> 4.7.3)
 
 DEPENDENCIES:
   - EstimoteIndoorSDK
-  - EstimoteProximitySDK (= 1.2.0)
+  - EstimoteProximitySDK
   - SwiftyDropbox
 
 SPEC REPOS:
@@ -25,12 +25,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  EstimoteBluetoothScanning: eeb6ed4e532220ea10fbff12d5c7f4588c5555af
+  EstimoteBluetoothScanning: 6d82c0dc02ff51a7812f27d82b4940e3ca5fe2b6
   EstimoteIndoorSDK: 53eaf12601b855f1d7eea7ae930d3fb8f66fb71d
-  EstimoteProximitySDK: fbd35595b1dd77c0f431942bf7ef683bef28bbea
+  EstimoteProximitySDK: 281e53259ba0808da4eba0219d6f09c23a9b1fb3
   EstimoteSDK: 17d0778be064419dd905f41981f831052f4c19ee
   SwiftyDropbox: 378b4425a2e8d0cb24c7b0f2e3af72bfbaaf1e73
 
-PODFILE CHECKSUM: 6dc2828043e9fe794c51f81b669abc384b5faeb3
+PODFILE CHECKSUM: baf8fe6e28092de1aea177147452404a525fb73b
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.5.3

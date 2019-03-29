@@ -93,27 +93,57 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
                 print("proximity observer error: \(error)")
         })
         
-        let zone_red = ProximityZone(tag: "red", range: .near)
-        zone_red.onEnter = { _ in
-            print("close to red")
-            self.positions = self.positions + getTimeString() + " close to red\n"
+        let zone_05 = ProximityZone(tag: "red", range: ProximityRange(desiredMeanTriggerDistance: 0.5)!)
+        zone_05.onEnter = { _ in
+            print("<0.5 to red")
+            self.positions = self.positions + getTimeString() + "<0.5 to red\n"
         }
-        zone_red.onExit = { _ in
-            print("exiting red")
-            self.positions = self.positions + getTimeString() + " exiting red\n"
-        }
-        
-        let zone_blue = ProximityZone(tag: "blue", range: .near)
-        zone_blue.onEnter = { _ in
-            print("close to blue")
-            self.positions = self.positions + getTimeString() + " close to blue\n"
-        }
-        zone_blue.onExit = { _ in
-            print("exiting blue")
-            self.positions = self.positions + getTimeString() + " exiting blue\n"
+        zone_05.onExit = { _ in
+            print("<0.5 red")
+            self.positions = self.positions + getTimeString() + "<0.5 exit red\n"
         }
         
-        self.proximityObserver.startObserving([zone_red,zone_blue])
+        let zone_10 = ProximityZone(tag: "red", range: ProximityRange(desiredMeanTriggerDistance: 1.0)!)
+        zone_10.onEnter = { _ in
+            print("<1.0 to red")
+            self.positions = self.positions + getTimeString() + "<1.0 to red\n"
+        }
+        zone_10.onExit = { _ in
+            print("<1.0 red")
+            self.positions = self.positions + getTimeString() + "<1.0 exit red\n"
+        }
+        
+        let zone_20 = ProximityZone(tag: "red", range: ProximityRange(desiredMeanTriggerDistance: 2.0)!)
+        zone_20.onEnter = { _ in
+            print("<2.0 to red")
+            self.positions = self.positions + getTimeString() + "<2.0 to red\n"
+        }
+        zone_20.onExit = { _ in
+            print("<2.0 red")
+            self.positions = self.positions + getTimeString() + "<2.0 exit red\n"
+        }
+        
+        let zone_30 = ProximityZone(tag: "red", range: ProximityRange(desiredMeanTriggerDistance: 3.0)!)
+        zone_30.onEnter = { _ in
+            print("<3.0 to red")
+            self.positions = self.positions + getTimeString() + "<3.0 to red\n"
+        }
+        zone_30.onExit = { _ in
+            print("<3.0 red")
+            self.positions = self.positions + getTimeString() + "<3.0 exit red\n"
+        }
+        
+        let zone_40 = ProximityZone(tag: "red", range: ProximityRange(desiredMeanTriggerDistance: 4.0)!)
+        zone_40.onEnter = { _ in
+            print("<4.0 to red")
+            self.positions = self.positions + getTimeString() + "<4.0 to red\n"
+        }
+        zone_40.onExit = { _ in
+            print("<4.0 red")
+            self.positions = self.positions + getTimeString() + "<4.0 exit red\n"
+        }
+
+        self.proximityObserver.startObserving([zone_05,zone_10,zone_20,zone_30,zone_40])
         
         DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: {(url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil)})
     }
@@ -135,7 +165,7 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
         if self.positions.count > 10000 {
             if let client = DropboxClientsManager.authorizedClient {
                 let fileData = self.positions.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-                let _ = client.files.upload(path: "/blue"+String(self.filenumber)+".txt", mode: .overwrite, autorename: false, input: fileData)
+                let _ = client.files.upload(path: "/silver"+String(self.filenumber)+".txt", mode: .overwrite, autorename: false, input: fileData)
                     .response { response, error in
                         if let response = response {
                             print(response)
