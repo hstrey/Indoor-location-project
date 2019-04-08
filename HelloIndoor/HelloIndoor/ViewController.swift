@@ -162,7 +162,7 @@ class ViewController: UIViewController, EILIndoorLocationManagerDelegate  {
         
         self.locationView.updatePosition(position)
         
-        if self.positions.count > 10000 {
+        if self.positions.count > 1000 {
             if let client = DropboxClientsManager.authorizedClient {
                 let fileData = self.positions.data(using: String.Encoding.utf8, allowLossyConversion: false)!
                 let _ = client.files.upload(path: "/silver"+String(self.filenumber)+".txt", mode: .overwrite, autorename: false, input: fileData)

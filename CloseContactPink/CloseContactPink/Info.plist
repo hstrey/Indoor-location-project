@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+    	<array>
+        	<string>dbapi-8-emm</string>
+        	<string>dbapi-2</string>
+    	</array>
+        <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>db-ntx5fdghd485naq</string>
+            </array>
+            <key>CFBundleURLName</key>
+            <string></string>
+        </dict>
+    </array>
+<key>NSLocationWhenInUseUsageDescription</key>
+        <string>We'll show you cool things near you in the app.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We'll show you cool things near you in the app. With the "always" option,
+we can also alert you via notifications if you don't have the app open.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

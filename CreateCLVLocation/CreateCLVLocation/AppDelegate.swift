@@ -17,23 +17,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let locationBuilder = EILLocationBuilder()
-        locationBuilder.setLocationName("CLV apartment test")
+        locationBuilder.setLocationName("CLV apartment 3")
         
         locationBuilder.setLocationBoundaryPoints([
             EILPoint(x: 0.00, y: 0.00),
-            EILPoint(x: 0.00, y: 9.85),
-            EILPoint(x: 4.56, y: 9.85),
-            EILPoint(x: 4.56, y: 0.00)])
+            EILPoint(x: 0.00, y: 4.27),
+            EILPoint(x: 1.93, y: 4.27),
+            EILPoint(x: 1.93, y: 4.98),
+            EILPoint(x: 0.33, y: 4.98),
+            EILPoint(x: 0.33, y: 6.27),
+            EILPoint(x: 2.54, y: 6.27),
+            EILPoint(x: 2.54, y: 6.73),
+            EILPoint(x: 3.94, y: 6.73),
+            EILPoint(x: 3.94, y: 3.96),
+            EILPoint(x: 5.74, y: 3.96),
+            EILPoint(x: 5.74, y: 6.63),
+            EILPoint(x: 7.21, y: 6.63),
+            EILPoint(x: 7.21, y: 0),
+            EILPoint(x: 3.86, y: 0),
+            EILPoint(x: 3.86, y: 3.02),
+            EILPoint(x: 3.76, y: 3.02),
+            EILPoint(x: 3.76, y: 0)])
         
-        locationBuilder.addBeacon(withIdentifier: "ed19942889b711d44bb1e3eda5184833",
-                                  atBoundarySegmentIndex: 0, inDistance: 3.5, from: .leftSide)
-        locationBuilder.addBeacon(withIdentifier: "211884e42e45a6e37397d33076d1483e",
-                                  atBoundarySegmentIndex: 1, inDistance: 1.1, from: .rightSide)
-        locationBuilder.addBeacon(withIdentifier: "d9db571ad6dce14013c21446460d4819",
-                                  atBoundarySegmentIndex: 2, inDistance: 5.7, from: .leftSide)
-        locationBuilder.addBeacon(withIdentifier: "9b66bca40167315563b7b62fe964e735",
-                                  atBoundarySegmentIndex: 3, inDistance: 2.4, from: .rightSide)
-        locationBuilder.setLocationOrientation(50)
+        locationBuilder.addBeacon(withIdentifier: "554492cade78573e276c8ae7b990d739",
+                                  atBoundarySegmentIndex: 0, inDistance: 2.14, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "616895debbed85ee3551babca24fd70d",
+                                  atBoundarySegmentIndex: 1, inDistance: 1.0, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "89d4ef27c2d20e38436d20a70ca3d53e",
+                                  atBoundarySegmentIndex: 2, inDistance: 0.2, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "a28909a39d8324ab0b9fd458f8b1ba07",
+                                  atBoundarySegmentIndex: 4, inDistance: 0.6, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "f905c5bf3294a6d3b6873a90b7171926",
+                                  atBoundarySegmentIndex: 5, inDistance: 0.5, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "a6c80cf383f89b658286b40372d34002",
+                                  atBoundarySegmentIndex: 7, inDistance: 0.65, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "ea518ee5a0ac11366f18663d8d53df1a",
+                                  atBoundarySegmentIndex: 8, inDistance: 1.5, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "f3a7eac1c525c124a2d7d41c39c50c15",
+                                  atBoundarySegmentIndex: 9, inDistance: 0.1, from: .rightSide)
+        locationBuilder.addBeacon(withIdentifier: "5b0b1956d31ac6610180c4ab05dade2a",
+                                  atBoundarySegmentIndex: 12, inDistance: 1.3, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "f31220a8a0ec53e5a863fec022517011",
+                                  atBoundarySegmentIndex: 12, inDistance: 2.0, from: .rightSide)
+        locationBuilder.addBeacon(withIdentifier: "c6f74e60a00d9fa554520e7608a6922c",
+                                  atBoundarySegmentIndex: 13, inDistance: 1.77, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "5aa2c2586f276cb554e8284e7efb5336",
+                                  atBoundarySegmentIndex: 14, inDistance: 1.50, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "61081f0a5e8f76896892f8819f76b424",
+                                  atBoundarySegmentIndex: 16, inDistance: 1.5, from: .rightSide)
+        locationBuilder.addBeacon(withIdentifier: "ca0f99188ca1703ce876d0f6f001fb26",
+                                  atBoundarySegmentIndex: 17, inDistance: 1.2, from: .leftSide)
+        locationBuilder.addBeacon(withIdentifier: "6b2d8f41de2c170fd10c24a971773207",
+                                  atBoundarySegmentIndex: 17, inDistance: 1.2, from: .rightSide)
+
+        locationBuilder.setLocationOrientation(277)
         
         let location = locationBuilder.build()!
         

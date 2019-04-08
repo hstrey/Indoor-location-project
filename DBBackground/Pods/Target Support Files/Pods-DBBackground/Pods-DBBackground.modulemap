@@ -1,0 +1,6 @@
+framework module Pods_DBBackground {
+  umbrella header "Pods-DBBackground-umbrella.h"
+
+  export *
+  module * { export * }
+}

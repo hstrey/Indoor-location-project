@@ -1,5 +1,5 @@
 target "CloseContactPink" do
   pod "EstimoteIndoorSDK"
-  pod "EstimoteProximitySDK","1.2.0"
+  pod "EstimoteProximitySDK"
   pod "SwiftyDropbox"
 end
