@@ -16,11 +16,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func startButtonPressed() {
-    }
     @IBAction func connectButtonPressed() {
                 DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: {(url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil)})
     }
     
 }
-

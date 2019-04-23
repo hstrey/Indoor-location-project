@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let locationBuilder = EILLocationBuilder()
-        locationBuilder.setLocationName("Test office")
+        locationBuilder.setLocationName("Helmut office")
         
         locationBuilder.setLocationBoundaryPoints([
             EILPoint(x: 0.00, y: 0.00),
@@ -26,20 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             EILPoint(x: 3.25, y: 3.05),
             EILPoint(x: 3.25, y: 0.00)])
         
-        locationBuilder.addBeacon(withIdentifier: "554492cade78573e276c8ae7b990d739",
+        locationBuilder.addBeacon(withIdentifier: "c563757306988484b5d0b1d91f32b635",
                                   atBoundarySegmentIndex: 0, inDistance: 1.5025, from: .leftSide)
-        locationBuilder.addBeacon(withIdentifier: "616895debbed85ee3551babca24fd70d",
+        locationBuilder.addBeacon(withIdentifier: "bb47bd3e4f3216eda46b5b882472571a",
                                   atBoundarySegmentIndex: 1, inDistance: 1.625, from: .rightSide)
-        locationBuilder.addBeacon(withIdentifier: "89d4ef27c2d20e38436d20a70ca3d53e",
+        locationBuilder.addBeacon(withIdentifier: "ab2f4dc90d0be48bbe5ebfa1ebc0f713",
                                   atBoundarySegmentIndex: 2, inDistance: 1.5025, from: .leftSide)
-        locationBuilder.addBeacon(withIdentifier: "a28909a39d8324ab0b9fd458f8b1ba07",
+        locationBuilder.addBeacon(withIdentifier: "fb1173b046a2f59dbde3b6d47a6ac414",
                                   atBoundarySegmentIndex: 3, inDistance: 1.625, from: .rightSide)
         
         locationBuilder.setLocationOrientation(270)
         
         let location = locationBuilder.build()
         
-        ESTConfig.setupAppID("createlocation-eo8", andAppToken: "85f01c75d54fab0f4dc1f0cce8b01e1e")
+        ESTConfig.setupAppID("createclvlocation-9ls", andAppToken: "4db670a56637b42b5659b943ebfdcf10")
         let addLocationRequest = EILRequestAddLocation(location: location!)
         addLocationRequest.sendRequest { (location, error) in
             if error != nil {
