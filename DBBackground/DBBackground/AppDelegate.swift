@@ -43,14 +43,33 @@ func getTimeString() -> String{
 }
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,
+                    EILBackgroundIndoorLocationManagerDelegate {
 
     var window: UIWindow?
     var positions = ""
+    var startdate = getTodayString()
     var proximityObserver: ProximityObserver!
+    var backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+    
+    let backgroundIndoorManager = EILBackgroundIndoorLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        ESTConfig.setupAppID("closecontact-nqa", andAppToken: "df38b7894b8841c1707ba7471aa3e34a")
+        
+        self.backgroundIndoorManager.delegate = self
+        self.backgroundIndoorManager.requestAlwaysAuthorization()
+        
+        let fetchLocation = EILRequestFetchLocation(locationIdentifier: "helmut-office")
+        fetchLocation.sendRequest { (location, error) in
+            if let location = location {
+                self.backgroundIndoorManager.startPositionUpdates(for: location)
+            } else {
+                print("can't fetch location: \(String(describing: error))")
+            }
+        }
+        
         DropboxClientsManager.setupWithAppKey("ntx5fdghd485naq")
         
         let cloudCredentials = CloudCredentials(appID: "closecontact-nqa",
@@ -132,6 +151,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func backgroundIndoorLocationManager(
+        _ locationManager: EILBackgroundIndoorLocationManager,
+        didFailToUpdatePositionWithError error: Error) {
+        print("failed to update position: \(error)")
+    }
+    
+    func backgroundIndoorLocationManager(
+        _ manager: EILBackgroundIndoorLocationManager,
+        didUpdatePosition position: EILOrientedPoint,
+        with positionAccuracy: EILPositionAccuracy,
+        in location: EILLocation) {
+        
+        // get string representation of current position
+        let currentpos = String(format: "%5.2f,%5.2f", position.x, position.y)
+        print(currentpos)
+        self.positions = self.positions + getTimeString() + " " + currentpos + "\n"
+        // if position data exceeds 10,000 characters save it to dropbox
+        if self.positions.count > 10000 {
+            sendPositionsToDB(data: self.positions)
+            self.positions = ""
+            self.startdate = getTodayString()
+        }
+
+    }
+    
+    func sendPositionsToDB( data : String ) {
+        // Perform the task on a background queue.
+        DispatchQueue.global().async {
+            // Request the task assertion and save the ID.
+            self.backgroundTaskID = UIApplication.shared.beginBackgroundTask (withName: "Finish Saving Data") {
+                // End the task if time expires.
+                UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
+                self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+            }
+            
+            // Send the data synchronously.
+            if let client = DropboxClientsManager.authorizedClient {
+                let fileData = data.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+                let _ = client.files.upload(path: "/test"+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
+                    .response { response, error in
+                        if let response = response {
+                            print(response)
+                        } else if let error = error {
+                            print(error)
+                        }
+                    }
+                    .progress { progressData in
+                        print(progressData)
+                }
+                
+            }
+            else {
+                print("not authorized")
+            }
+            
+            // End the task assertion.
+            UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
+            self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+        }
+    }
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

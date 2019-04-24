@@ -229,6 +229,11 @@ THE SOFTWARE.
    limitations under the License.
 
 
+## EstimoteIndoorSDK
+
+Copyright 2017 Estimote, Inc. All rights reserved.
+
+
 ## EstimoteProximitySDK
 
                                  Apache License
@@ -432,6 +437,11 @@ THE SOFTWARE.
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+
+## EstimoteSDK
+
+Copyright 2017 Estimote, Inc. All rights reserved.
 
 
 ## SwiftyDropbox
