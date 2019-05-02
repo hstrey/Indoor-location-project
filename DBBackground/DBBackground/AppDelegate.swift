@@ -51,11 +51,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
     var startdate = getTodayString()
     var proximityObserver: ProximityObserver!
     var backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+    let beaconTag = "pink"
     
     let backgroundIndoorManager = EILBackgroundIndoorLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Get UserDefaults
+        let defaults = UserDefaults.standard
+        let mylocation = defaults.object(forKey: "Location") as? String
+        print(mylocation ?? "did not get location")
+        
         ESTConfig.setupAppID("closecontact-nqa", andAppToken: "df38b7894b8841c1707ba7471aa3e34a")
         
         self.backgroundIndoorManager.delegate = self
@@ -81,57 +88,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                 print("proximity observer error: \(error)")
         })
         
-        let zone_05 = ProximityZone(tag: "pink", range: ProximityRange(desiredMeanTriggerDistance: 0.5)!)
+        let zone_05 = ProximityZone(tag: self.beaconTag, range: ProximityRange(desiredMeanTriggerDistance: 0.5)!)
         
         zone_05.onEnter = { _ in
-            print("<0.5 to pink")
-            self.positions = self.positions + getTimeString() + " <0.5 to pink\n"
+            print("<0.5 to " + self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <0.5 to "+self.beaconTag+"\n"
         }
         zone_05.onExit = { _ in
-            print("<0.5 exit pink")
-            self.positions = self.positions + getTimeString() + " <0.5 exit pink\n"
+            print("<0.5 exit "+self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <0.5 exit "+self.beaconTag+"\n"
         }
         
-        let zone_10 = ProximityZone(tag: "pink", range: ProximityRange(desiredMeanTriggerDistance: 1.0)!)
+        let zone_10 = ProximityZone(tag: self.beaconTag, range: ProximityRange(desiredMeanTriggerDistance: 1.0)!)
+        
         zone_10.onEnter = { _ in
-            print("<1.0 to pink")
-            self.positions = self.positions + getTimeString() + " <1.0 to pink\n"
+            print("<1.0 to " + self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <1.0 to "+self.beaconTag+"\n"
         }
         zone_10.onExit = { _ in
-            print("<1.0 exit pink")
-            self.positions = self.positions + getTimeString() + " <1.0 exit pink\n"
+            print("<1.0 exit "+self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <1.0 exit "+self.beaconTag+"\n"
         }
+
+        let zone_20 = ProximityZone(tag: self.beaconTag, range: ProximityRange(desiredMeanTriggerDistance: 2.0)!)
         
-        let zone_20 = ProximityZone(tag: "pink", range: ProximityRange(desiredMeanTriggerDistance: 2.0)!)
         zone_20.onEnter = { _ in
-            print("<2.0 to pink")
-            self.positions = self.positions + getTimeString() + " <2.0 to pink\n"
+            print("<2.0 to " + self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <2.0 to "+self.beaconTag+"\n"
         }
         zone_20.onExit = { _ in
-            print("<2.0 exit pink")
-            self.positions = self.positions + getTimeString() + " <2.0 exit pink\n"
+            print("<2.0 exit "+self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <2.0 exit "+self.beaconTag+"\n"
         }
+
+        let zone_30 = ProximityZone(tag: self.beaconTag, range: ProximityRange(desiredMeanTriggerDistance: 3.0)!)
         
-        let zone_30 = ProximityZone(tag: "pink", range: ProximityRange(desiredMeanTriggerDistance: 3.0)!)
         zone_30.onEnter = { _ in
-            print("<3.0 to pink")
-            self.positions = self.positions + getTimeString() + " <3.0 to pink\n"
+            print("<3.0 to " + self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <3.0 to "+self.beaconTag+"\n"
         }
         zone_30.onExit = { _ in
-            print("<3.0 exit pink")
-            self.positions = self.positions + getTimeString() + " <3.0 exit pink\n"
+            print("<3.0 exit "+self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <3.0 exit "+self.beaconTag+"\n"
         }
+
+        let zone_40 = ProximityZone(tag: self.beaconTag, range: ProximityRange(desiredMeanTriggerDistance: 4.0)!)
         
-        let zone_40 = ProximityZone(tag: "pink", range: ProximityRange(desiredMeanTriggerDistance: 4.0)!)
         zone_40.onEnter = { _ in
-            print("<4.0 to pink")
-            self.positions = self.positions + getTimeString() + " <4.0 to pink\n"
+            print("<4.0 to " + self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <4.0 to "+self.beaconTag+"\n"
         }
         zone_40.onExit = { _ in
-            print("<4.0 exit pink")
-            self.positions = self.positions + getTimeString() + " <4.0 exit pink\n"
+            print("<4.0 exit "+self.beaconTag)
+            self.positions = self.positions + getTimeString() + " <4.0 exit "+self.beaconTag+"\n"
         }
-        
+
         self.proximityObserver.startObserving([zone_05,zone_10,zone_20,zone_30,zone_40])
 
         return true
@@ -168,7 +179,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         print(currentpos)
         self.positions = self.positions + getTimeString() + " " + currentpos + "\n"
         // if position data exceeds 10,000 characters save it to dropbox
-        if self.positions.count > 10000 {
+        if self.positions.count > 1000 {
+            print("attempting to save data to DB")
             sendPositionsToDB(data: self.positions)
             self.positions = ""
             self.startdate = getTodayString()

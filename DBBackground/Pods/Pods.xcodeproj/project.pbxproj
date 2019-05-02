@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -196,7 +196,7 @@
 		2E2303B57C7D10196CE26861F7139EA6 /* ESTSettingSensorsTemperature.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTSettingSensorsTemperature.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTSettingSensorsTemperature.h; sourceTree = "<group>"; };
 		2E67682CB711B78B8B172608055D25B9 /* ESTEddystoneFilterUID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTEddystoneFilterUID.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTEddystoneFilterUID.h; sourceTree = "<group>"; };
 		2EB06EEFF7F07D8D0BDFFD70EEC12ECB /* EILIndoorSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EILIndoorSDK.h; path = EstimoteIndoorLocationSDK/Headers/EILIndoorSDK.h; sourceTree = "<group>"; };
-		2EF9C560C2510AC0E97E710540D0F5FB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF9C560C2510AC0E97E710540D0F5FB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0C682D73E68D27F9971AC2050A2E05 /* ESTSettingDeviceInfoIndoorLocationIdentifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTSettingDeviceInfoIndoorLocationIdentifier.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTSettingDeviceInfoIndoorLocationIdentifier.h; sourceTree = "<group>"; };
 		2F382A21B1D760FD7646085FA732B28A /* Team.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Team.swift; path = Source/SwiftyDropbox/Shared/Generated/Team.swift; sourceTree = "<group>"; };
 		3007BE56A614F8984DB53173C53D267F /* ESTNearableOperationIBeaconProximityUUID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTNearableOperationIBeaconProximityUUID.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTNearableOperationIBeaconProximityUUID.h; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 		5D6F74642FCBEB465A7330E4282D17E9 /* ESTMonitoringZone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTMonitoringZone.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTMonitoringZone.h; sourceTree = "<group>"; };
 		5F61BC1D00771239FD96727CB8CC1295 /* beaconWhiteSmall@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "beaconWhiteSmall@3x.png"; path = "EstimoteIndoorLocationSDK/Resources/beaconWhiteSmall@3x.png"; sourceTree = "<group>"; };
 		5F8F5AD7091D7F95286F741ADF2E3570 /* ESTOrientationRule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTOrientationRule.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTOrientationRule.h; sourceTree = "<group>"; };
-		5FB0EAC38377CDF6C2429B7309EF2777 /* Pods_DBBackground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DBBackground.framework; path = "Pods-DBBackground.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB0EAC38377CDF6C2429B7309EF2777 /* Pods_DBBackground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DBBackground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB17464D3E62DF9D7A6930D040D6856 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		608D2089652D939FB8503B14B793F116 /* EBSScanInfoNearable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EBSScanInfoNearable.h; path = EstimoteBluetoothScanning/EstimoteBluetoothScanning.framework/Headers/EBSScanInfoNearable.h; sourceTree = "<group>"; };
 		60C729DF80D77BB56B52ACDEA7EF62A2 /* ESTSettingEddystoneTLMInterval.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTSettingEddystoneTLMInterval.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTSettingEddystoneTLMInterval.h; sourceTree = "<group>"; };
@@ -393,7 +393,7 @@
 		9363D6B10E78F373205ABC11834C6395 /* Base.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Base.swift; path = Source/SwiftyDropbox/Shared/Generated/Base.swift; sourceTree = "<group>"; };
 		93752D5D8F4324F331C8B1993A27F038 /* SwiftyDropbox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyDropbox.modulemap; sourceTree = "<group>"; };
 		937D73C5A57576EC270137345B4FC681 /* ESTRequestGetJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTRequestGetJSON.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTRequestGetJSON.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		940463EF812D20C41509A4AE4A0F7D99 /* ESTBeacon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTBeacon.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTBeacon.h; sourceTree = "<group>"; };
 		947F0562333EDA7DA5C175B908CB100C /* ESTBeaconOperationConnectivityPower.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTBeaconOperationConnectivityPower.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTBeaconOperationConnectivityPower.h; sourceTree = "<group>"; };
 		955FED8151DE2D63642480EF0A9B7A05 /* Paper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Paper.swift; path = Source/SwiftyDropbox/Shared/Generated/Paper.swift; sourceTree = "<group>"; };
@@ -424,7 +424,7 @@
 		A174ED750B246B094603B47CDBBC1F44 /* ESTDeviceFilterNearable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTDeviceFilterNearable.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTDeviceFilterNearable.h; sourceTree = "<group>"; };
 		A1890F927B65742C5357DDBF99419231 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		A22E3EE87643A36CC1AE28964404B37E /* ESTNearableOperationApplicationVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTNearableOperationApplicationVersion.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTNearableOperationApplicationVersion.h; sourceTree = "<group>"; };
-		A2AF39FE8005A32237234F50049D8E69 /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyDropbox.framework; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2AF39FE8005A32237234F50049D8E69 /* SwiftyDropbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyDropbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A322A1C02A5B23476881F448EE918596 /* beaconWhiteSmall.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = beaconWhiteSmall.png; path = EstimoteIndoorLocationSDK/Resources/beaconWhiteSmall.png; sourceTree = "<group>"; };
 		A34185BEA780151942B8B38D13FEB358 /* ESTBeaconRecentConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTBeaconRecentConfig.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTBeaconRecentConfig.h; sourceTree = "<group>"; };
 		A4484273CCBE6A26946E1F3F68899B0C /* ESTRule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ESTRule.h; path = EstimoteSDK/EstimoteSDK.framework/Versions/A/Headers/ESTRule.h; sourceTree = "<group>"; };
@@ -749,7 +749,6 @@
 				C3998C650A198B058DC02603955F8677 /* UsersRoutes.swift */,
 				9C11879BA669A1E7668730261CDC4166 /* Support Files */,
 			);
-			name = SwiftyDropbox;
 			path = SwiftyDropbox;
 			sourceTree = "<group>";
 		};
@@ -800,7 +799,6 @@
 				1708986EE857CF04F5EF4752170E1D28 /* Frameworks */,
 				09B546F412A6F042E8195AF4973A79AD /* Resources */,
 			);
-			name = EstimoteIndoorSDK;
 			path = EstimoteIndoorSDK;
 			sourceTree = "<group>";
 		};
@@ -1198,7 +1196,6 @@
 				4C7993145DD414FD839C53BE97DF2B33 /* ESTUtilityManager.h */,
 				1E437215A6A25FC39617515874553451 /* Frameworks */,
 			);
-			name = EstimoteSDK;
 			path = EstimoteSDK;
 			sourceTree = "<group>";
 		};
@@ -1251,7 +1248,6 @@
 				76BFDC43746F9002D38203ACF26340A4 /* EstimoteBluetoothScanning.h */,
 				803916459AA074F790727BE6FB4D0C63 /* Frameworks */,
 			);
-			name = EstimoteBluetoothScanning;
 			path = EstimoteBluetoothScanning;
 			sourceTree = "<group>";
 		};
@@ -1260,7 +1256,6 @@
 			children = (
 				F7BAC9448C2D434F64CE20BCF328E4B3 /* Frameworks */,
 			);
-			name = EstimoteProximitySDK;
 			path = EstimoteProximitySDK;
 			sourceTree = "<group>";
 		};
@@ -1294,7 +1289,6 @@
 				0AFAAFD4B89EC84CA1CF413021E469B4 /* Validation.swift */,
 				EE2179A5205259A27EADD414A07871C7 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1416,14 +1410,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = 4458EA217573D0D5F2809AE813E39AEF /* Products */;
@@ -1587,11 +1582,7 @@
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
 				PRODUCT_MODULE_NAME = Alamofire;
 				PRODUCT_NAME = Alamofire;
@@ -1624,11 +1615,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-DBBackground/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-DBBackground/Pods-DBBackground.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1649,6 +1636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1729,11 +1717,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-DBBackground/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-DBBackground/Pods-DBBackground.modulemap";
 				OTHER_LDFLAGS = "";
@@ -1766,11 +1750,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyDropbox/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftyDropbox/SwiftyDropbox.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyDropbox;
 				PRODUCT_NAME = SwiftyDropbox;
@@ -1789,6 +1769,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1840,8 +1821,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1864,11 +1844,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftyDropbox/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftyDropbox/SwiftyDropbox.modulemap";
 				PRODUCT_MODULE_NAME = SwiftyDropbox;
 				PRODUCT_NAME = SwiftyDropbox;
@@ -1899,11 +1875,7 @@
 				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
 				PRODUCT_MODULE_NAME = Alamofire;
 				PRODUCT_NAME = Alamofire;
