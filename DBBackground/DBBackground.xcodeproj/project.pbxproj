@@ -13,6 +13,7 @@
 		F146A1EA225030ED00EC8C68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F146A1E8225030ED00EC8C68 /* Main.storyboard */; };
 		F146A1EC225030EE00EC8C68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F146A1EB225030EE00EC8C68 /* Assets.xcassets */; };
 		F146A1EF225030EE00EC8C68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F146A1ED225030EE00EC8C68 /* LaunchScreen.storyboard */; };
+		F1CCE2EC227B632200B06994 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1CCE2EB227B632200B06994 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F146A1EE225030EE00EC8C68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F146A1F0225030EE00EC8C68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17906DD226F8EDE0040AE62 /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+		F1CCE2EB227B632200B06994 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				F146A1ED225030EE00EC8C68 /* LaunchScreen.storyboard */,
 				F146A1F0225030EE00EC8C68 /* Info.plist */,
 				F17906DD226F8EDE0040AE62 /* ObjCBridge.h */,
+				F1CCE2EB227B632200B06994 /* Settings.bundle */,
 			);
 			path = DBBackground;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CCE2EC227B632200B06994 /* Settings.bundle in Resources */,
 				F146A1EF225030EE00EC8C68 /* LaunchScreen.storyboard in Resources */,
 				F146A1EC225030EE00EC8C68 /* Assets.xcassets in Resources */,
 				F146A1EA225030ED00EC8C68 /* Main.storyboard in Resources */,

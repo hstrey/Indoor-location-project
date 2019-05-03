@@ -51,7 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
     var startdate = getTodayString()
     var proximityObserver: ProximityObserver!
     var backgroundTaskID = UIBackgroundTaskIdentifier.invalid
-    let beaconTag = "pink"
+    var beaconTag = "pink"
+    var mycolor = "silver"
     
     let backgroundIndoorManager = EILBackgroundIndoorLocationManager()
 
@@ -61,14 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         // Get UserDefaults
         let defaults = UserDefaults.standard
         let mylocation = defaults.object(forKey: "Location") as? String
-        print(mylocation ?? "did not get location")
+        print("mylocation \(String(describing: mylocation))")
+        self.mycolor = defaults.object(forKey: "Color") as? String ?? "silver"
+        print("mycolor \(String(describing: self.mycolor))")
+        
+        if mycolor == "pink" {
+            beaconTag = "silver"
+        }
         
         ESTConfig.setupAppID("closecontact-nqa", andAppToken: "df38b7894b8841c1707ba7471aa3e34a")
         
         self.backgroundIndoorManager.delegate = self
         self.backgroundIndoorManager.requestAlwaysAuthorization()
         
-        let fetchLocation = EILRequestFetchLocation(locationIdentifier: "helmut-office")
+        let fetchLocation = EILRequestFetchLocation(locationIdentifier: mylocation ?? "helmut-office")
         fetchLocation.sendRequest { (location, error) in
             if let location = location {
                 self.backgroundIndoorManager.startPositionUpdates(for: location)
@@ -201,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             // Send the data synchronously.
             if let client = DropboxClientsManager.authorizedClient {
                 let fileData = data.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-                let _ = client.files.upload(path: "/test"+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
+                let _ = client.files.upload(path: "/"+self.mycolor+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
                     .response { response, error in
                         if let response = response {
                             print(response)
