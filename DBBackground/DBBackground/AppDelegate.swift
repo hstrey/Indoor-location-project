@@ -149,8 +149,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             print("<4.0 exit "+self.beaconTag)
             self.positions = self.positions + getTimeString() + " <4.0 exit "+self.beaconTag+"\n"
         }
+        
+        let zone_library = ProximityZone(tag: "library", range: ProximityRange(desiredMeanTriggerDistance: 9.0)!)
+        
+        zone_library.onEnter = { _ in
+            print("<9.0 to library")
+            self.positions = self.positions + getTimeString() + " <9.0 to library\n"
+        }
+        zone_library.onExit = { _ in
+            print("<9.0 exit library")
+            self.positions = self.positions + getTimeString() + " <9.0 exit library\n"
+        }
+        
+        let zone_dining = ProximityZone(tag: "dining", range: ProximityRange(desiredMeanTriggerDistance: 9.0)!)
 
-        self.proximityObserver.startObserving([zone_05,zone_10,zone_20,zone_30,zone_40])
+        zone_dining.onEnter = { _ in
+            print("<9.0 to dining")
+            self.positions = self.positions + getTimeString() + " <9.0 to dining\n"
+        }
+        zone_dining.onExit = { _ in
+            print("<9.0 exit dining")
+            self.positions = self.positions + getTimeString() + " <9.0 exit dining\n"
+        }
+        
+        self.proximityObserver.startObserving([zone_05,zone_10,zone_20,zone_30,zone_40,zone_library,zone_dining])
 
         return true
     }
