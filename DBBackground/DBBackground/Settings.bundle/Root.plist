@@ -17,11 +17,13 @@
 			<string>pink</string>
 			<key>Values</key>
 			<array>
+				<string>test</string>
 				<string>pink</string>
 				<string>silver</string>
 			</array>
 			<key>Titles</key>
 			<array>
+				<string>test</string>
 				<string>pink</string>
 				<string>silver</string>
 			</array>

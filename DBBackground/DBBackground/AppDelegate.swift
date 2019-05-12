@@ -81,6 +81,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                 self.backgroundIndoorManager.startPositionUpdates(for: location)
             } else {
                 print("can't fetch location: \(String(describing: error))")
+                if self.mycolor == "test" {
+                    self.positions = self.positions + "Error \(String(describing: error)) \n"
+                }
+
             }
         }
         
@@ -182,10 +186,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             switch authResult {
             case .success:
                 print("Success! User is logged into Dropbox.")
+                if self.mycolor == "test" {
+                    self.positions = self.positions + "Success! User is logged into Dropbox.\n"
+                }
+
             case .cancel:
                 print("Authorization flow was manually canceled by user!")
+                if self.mycolor == "test" {
+                    self.positions = self.positions + "Authorization flow was manually canceled by user!\n"
+                }
+
             case .error(_, let description):
                 print("Error: \(description)")
+                if self.mycolor == "test" {
+                    self.positions = self.positions + "Error DBAuthorization: \(description) \n"
+                }
+
             }
         }
         return true
@@ -195,6 +211,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         _ locationManager: EILBackgroundIndoorLocationManager,
         didFailToUpdatePositionWithError error: Error) {
         print("failed to update position: \(error)")
+        if self.mycolor == "test" {
+            self.positions = self.positions + "Error backgroundIndoorLocationManager\(error) \n"
+        }
+
     }
     
     func backgroundIndoorLocationManager(
@@ -234,14 +254,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                     .response { response, error in
                         if let response = response {
                             print(response)
+                            if self.mycolor == "test" {
+                                self.positions = self.positions + String(describing: response) + "\n"
+                            }
                         } else if let error = error {
                             print(error)
+                            if self.mycolor == "test" {
+                                self.positions = self.positions + String(describing: error) + "\n"
+                            }
                         }
                     }
                     .progress { progressData in
                         print(progressData)
-                }
+                        if self.mycolor == "test" {
+                            self.positions = self.positions + String(describing: progressData) + "\n"
+                        }
                 
+                    }
             }
             else {
                 print("not authorized")
@@ -262,6 +291,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         print("applicationDidEnterBackground")
+        if self.mycolor == "test" {
+            self.positions = self.positions + "applicationDidEnterBackground\n"
+        }
+
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -275,6 +308,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         print("applicationWillTerminate")
+        if self.mycolor == "test" {
+            self.positions = self.positions + "applicationWillTerminate\n"
+        }
+
     }
 
 
