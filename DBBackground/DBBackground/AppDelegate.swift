@@ -228,7 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         print(currentpos)
         self.positions = self.positions + getTimeString() + " " + currentpos + "\n"
         // if position data exceeds 10,000 characters save it to dropbox
-        if self.positions.count > 1000 {
+        if self.positions.count > 5000 {
             print("attempting to save data to DB")
             sendPositionsToDB(data: self.positions)
             self.positions = ""
@@ -255,19 +255,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
                         if let response = response {
                             print(response)
                             if self.mycolor == "test" {
-                                self.positions = self.positions + String(describing: response) + "\n"
+                                self.positions = self.positions + "DBrespone: "+String(describing: response) + "\n"
                             }
                         } else if let error = error {
                             print(error)
                             if self.mycolor == "test" {
-                                self.positions = self.positions + String(describing: error) + "\n"
+                                self.positions = self.positions + "DBerror: "+String(describing: error) + "\n"
                             }
                         }
                     }
                     .progress { progressData in
                         print(progressData)
                         if self.mycolor == "test" {
-                            self.positions = self.positions + String(describing: progressData) + "\n"
+                            self.positions = self.positions + "DBprogress: "+String(describing: progressData) + "\n"
                         }
                 
                     }
