@@ -59,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Save data once every 10min.
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        
         // Get UserDefaults
         let defaults = UserDefaults.standard
         let mylocation = defaults.object(forKey: "Location") as? String
@@ -228,59 +231,98 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         print(currentpos)
         self.positions = self.positions + getTimeString() + " " + currentpos + "\n"
         // if position data exceeds 10,000 characters save it to dropbox
-        if self.positions.count > 5000 {
-            print("attempting to save data to DB")
-            sendPositionsToDB(data: self.positions)
-            self.positions = ""
-            self.startdate = getTodayString()
-        }
+//        if self.positions.count > 5000 {
+//            print("attempting to save data to DB")
+//            sendPositionsToDB(data: self.positions)
+//            self.positions = ""
+//            self.startdate = getTodayString()
+//        }
 
     }
     
-    func sendPositionsToDB( data : String ) {
-        // Perform the task on a background queue.
-        DispatchQueue.global().async {
-            // Request the task assertion and save the ID.
-            self.backgroundTaskID = UIApplication.shared.beginBackgroundTask (withName: "Finish Saving Data") {
-                // End the task if time expires.
-                UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
-                self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
-            }
-            
-            // Send the data synchronously.
-            if let client = DropboxClientsManager.authorizedClient {
-                let fileData = data.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-                let _ = client.files.upload(path: "/"+self.mycolor+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
-                    .response { response, error in
-                        if let response = response {
-                            print(response)
-                            if self.mycolor == "test" {
-                                self.positions = self.positions + "DBrespone: "+String(describing: response) + "\n"
-                            }
-                        } else if let error = error {
-                            print(error)
-                            if self.mycolor == "test" {
-                                self.positions = self.positions + "DBerror: "+String(describing: error) + "\n"
-                            }
-                        }
-                    }
-                    .progress { progressData in
-                        print(progressData)
+    func application(_ application: UIApplication,
+                     performFetchWithCompletionHandler completionHandler:
+        @escaping (UIBackgroundFetchResult) -> Void) {
+        // Send the data synchronously.
+        print("Backgroundfetch")
+        if let client = DropboxClientsManager.authorizedClient {
+            let fileData = self.positions.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+            // reset positions
+            self.positions = ""
+            self.startdate = getTodayString()
+            let _ = client.files.upload(path: "/"+self.mycolor+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
+                .response { response, error in
+                    if let response = response {
+                        print(response)
                         if self.mycolor == "test" {
-                            self.positions = self.positions + "DBprogress: "+String(describing: progressData) + "\n"
+                            self.positions = self.positions + "DBrespone: "+String(describing: response) + "\n"
                         }
-                
+                    } else if let error = error {
+                        print(error)
+                        if self.mycolor == "test" {
+                            self.positions = self.positions + "DBerror: "+String(describing: error) + "\n"
+                        }
                     }
+                }
+                .progress { progressData in
+                    print(progressData)
+                    completionHandler(.newData)
+                    if self.mycolor == "test" {
+                        self.positions = self.positions + "DBprogress: "+String(describing: progressData) + "\n"
+                    }
+                    
             }
-            else {
-                print("not authorized")
-            }
-            
-            // End the task assertion.
-            UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
-            self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+        }
+        else {
+            print("not authorized")
+            completionHandler(.noData)
         }
     }
+    
+//    func sendPositionsToDB( data : String ) {
+//        // Perform the task on a background queue.
+//        DispatchQueue.global().async {
+//            // Request the task assertion and save the ID.
+//            self.backgroundTaskID = UIApplication.shared.beginBackgroundTask (withName: "Finish Saving Data") {
+//                // End the task if time expires.
+//                UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
+//                self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+//            }
+//
+//            // Send the data synchronously.
+//            if let client = DropboxClientsManager.authorizedClient {
+//                let fileData = data.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+//                let _ = client.files.upload(path: "/"+self.mycolor+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
+//                    .response { response, error in
+//                        if let response = response {
+//                            print(response)
+//                            if self.mycolor == "test" {
+//                                self.positions = self.positions + "DBrespone: "+String(describing: response) + "\n"
+//                            }
+//                        } else if let error = error {
+//                            print(error)
+//                            if self.mycolor == "test" {
+//                                self.positions = self.positions + "DBerror: "+String(describing: error) + "\n"
+//                            }
+//                        }
+//                    }
+//                    .progress { progressData in
+//                        print(progressData)
+//                        if self.mycolor == "test" {
+//                            self.positions = self.positions + "DBprogress: "+String(describing: progressData) + "\n"
+//                        }
+//
+//                    }
+//            }
+//            else {
+//                print("not authorized")
+//            }
+//
+//            // End the task assertion.
+//            UIApplication.shared.endBackgroundTask(self.backgroundTaskID)
+//            self.backgroundTaskID = UIBackgroundTaskIdentifier.invalid
+//        }
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
