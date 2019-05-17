@@ -58,10 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // Save data once every 10min.
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
-        
+                
         // Get UserDefaults
         let defaults = UserDefaults.standard
         let mylocation = defaults.object(forKey: "Location") as? String
@@ -230,53 +227,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         let currentpos = String(format: "%5.2f,%5.2f", position.x, position.y)
         print(currentpos)
         self.positions = self.positions + getTimeString() + " " + currentpos + "\n"
-        // if position data exceeds 10,000 characters save it to dropbox
-//        if self.positions.count > 5000 {
-//            print("attempting to save data to DB")
-//            sendPositionsToDB(data: self.positions)
-//            self.positions = ""
-//            self.startdate = getTodayString()
-//        }
-
-    }
-    
-    func application(_ application: UIApplication,
-                     performFetchWithCompletionHandler completionHandler:
-        @escaping (UIBackgroundFetchResult) -> Void) {
-        // Send the data synchronously.
-        print("Backgroundfetch")
-        if let client = DropboxClientsManager.authorizedClient {
-            let fileData = self.positions.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-            // reset positions
+//      if position data exceeds a certain number of characters, save it to file
+        if self.positions.count > 5000 {
+            print("attempting to save data to file")
+            let filename = self.mycolor+self.startdate+".txt"
+            if let dir = try? FileManager.default.url(
+                                    for: FileManager.SearchPathDirectory.documentDirectory,
+                                    in: FileManager.SearchPathDomainMask.userDomainMask,
+                                    appropriateFor: nil, create: true){
+                
+                let fileURL = dir.appendingPathComponent(filename)
+                
+                //writing
+                do {
+                    try positions.write(to: fileURL, atomically: false, encoding: .utf8)
+                }
+                catch {
+                    print("save failed!")
+                }
+                
+                //reading
+            }
             self.positions = ""
             self.startdate = getTodayString()
-            let _ = client.files.upload(path: "/"+self.mycolor+self.startdate+".txt", mode: .overwrite, autorename: false, input: fileData)
-                .response { response, error in
-                    if let response = response {
-                        print(response)
-                        if self.mycolor == "test" {
-                            self.positions = self.positions + "DBrespone: "+String(describing: response) + "\n"
-                        }
-                    } else if let error = error {
-                        print(error)
-                        if self.mycolor == "test" {
-                            self.positions = self.positions + "DBerror: "+String(describing: error) + "\n"
-                        }
-                    }
-                }
-                .progress { progressData in
-                    print(progressData)
-                    completionHandler(.newData)
-                    if self.mycolor == "test" {
-                        self.positions = self.positions + "DBprogress: "+String(describing: progressData) + "\n"
-                    }
-                    
-            }
         }
-        else {
-            print("not authorized")
-            completionHandler(.noData)
-        }
+
     }
     
 //    func sendPositionsToDB( data : String ) {
