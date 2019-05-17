@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyDropbox
+//import SwiftyDropbox
 
 class ViewController: UIViewController {
     
@@ -24,8 +24,8 @@ class ViewController: UIViewController {
 
     }
 
-    @IBAction func connectButtonPressed() {
-                DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: {(url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil)})
-    }
+//    @IBAction func connectButtonPressed() {
+//                DropboxClientsManager.authorizeFromController(UIApplication.shared, controller: self, openURL: {(url: URL) -> Void in UIApplication.shared.open(url, options: [:], completionHandler: nil)})
+//    }
     
 }

@@ -1,7 +1,6 @@
 use_frameworks!
 
 target 'DBBackground' do
-    pod 'SwiftyDropbox'
     pod 'EstimoteProximitySDK'
     pod 'EstimoteIndoorSDK'
 end

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyDropbox
+//import SwiftyDropbox
 import EstimoteProximitySDK
 
 func getTodayString() -> String{
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
             }
         }
         
-        DropboxClientsManager.setupWithAppKey("ntx5fdghd485naq")
+//        DropboxClientsManager.setupWithAppKey("ntx5fdghd485naq")
         
         let cloudCredentials = CloudCredentials(appID: "closecontact-nqa",
                                                 appToken: "df38b7894b8841c1707ba7471aa3e34a")
@@ -181,31 +181,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if let authResult = DropboxClientsManager.handleRedirectURL(url) {
-            switch authResult {
-            case .success:
-                print("Success! User is logged into Dropbox.")
-                if self.mycolor == "test" {
-                    self.positions = self.positions + "Success! User is logged into Dropbox.\n"
-                }
-
-            case .cancel:
-                print("Authorization flow was manually canceled by user!")
-                if self.mycolor == "test" {
-                    self.positions = self.positions + "Authorization flow was manually canceled by user!\n"
-                }
-
-            case .error(_, let description):
-                print("Error: \(description)")
-                if self.mycolor == "test" {
-                    self.positions = self.positions + "Error DBAuthorization: \(description) \n"
-                }
-
-            }
-        }
-        return true
-    }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        if let authResult = DropboxClientsManager.handleRedirectURL(url) {
+//            switch authResult {
+//            case .success:
+//                print("Success! User is logged into Dropbox.")
+//                if self.mycolor == "test" {
+//                    self.positions = self.positions + "Success! User is logged into Dropbox.\n"
+//                }
+//
+//            case .cancel:
+//                print("Authorization flow was manually canceled by user!")
+//                if self.mycolor == "test" {
+//                    self.positions = self.positions + "Authorization flow was manually canceled by user!\n"
+//                }
+//
+//            case .error(_, let description):
+//                print("Error: \(description)")
+//                if self.mycolor == "test" {
+//                    self.positions = self.positions + "Error DBAuthorization: \(description) \n"
+//                }
+//
+//            }
+//        }
+//        return true
+//    }
     
     func backgroundIndoorLocationManager(
         _ locationManager: EILBackgroundIndoorLocationManager,
@@ -228,7 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,
         print(currentpos)
         self.positions = self.positions + getTimeString() + " " + currentpos + "\n"
 //      if position data exceeds a certain number of characters, save it to file
-        if self.positions.count > 5000 {
+        if self.positions.count > 2000 {
             print("attempting to save data to file")
             let filename = self.mycolor+self.startdate+".txt"
             if let dir = try? FileManager.default.url(
